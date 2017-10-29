@@ -54,8 +54,19 @@ RUN set -x && \
     make && \
     make install && \
     rm -rf /usr/local/src && \
-    apt-get autoremove -y && \
-    apt-get install libapr1 && \
+    apt-get purge -y \
+            apache2-dev libxml2-dev build-essential libpcre3-dev libghc-zlib-dev libssl-dev \
+            autoconf automake autopoint autotools-dev binutils cpp \
+            cpp-6 debhelper dh-autoreconf dh-strip-nondeterminism dpkg-dev \
+            g++ g++-6 gcc gcc-6 icu-devtools \
+            intltool-debian \
+            libbsd-dev libc-dev-bin libc6-dev \
+            libdpkg-perl libexpat1-dev libffi-dev \
+            libgcc-6-dev libgmp-dev \
+            libicu-dev libldap2-dev libltdl-dev \
+            libncurses5-dev libsctp-dev libssl-doc libstdc++-6-dev libtinfo-dev \
+            linux-libc-dev man-db manpages-dev po-debconf \
+            sgml-base uuid-dev zlib1g-dev && \
     apt-get clean -y && \
     apt-get autoclean -y
 
