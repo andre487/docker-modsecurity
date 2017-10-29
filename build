@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
-VERSION=2.9.2
+MOD_VERSION=2.9.2
+RULES_VERSION=3.0.2  # Don't forget to update version in crs-setup.conf, near "Nb! UPDATE VERSION HERE"
 DOCKER_USER=andre487
 
 cd "$(dirname "$0")"
 
-docker build . -t "$DOCKER_USER/modsecurity:$VERSION" --build-arg version="$VERSION"
+docker build . -t "$DOCKER_USER/modsecurity:$MOD_VERSION" \
+    --build-arg mod_version="$MOD_VERSION" \
+    --build-arg rules_version="$RULES_VERSION"
