@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+VERSION=2.9.2
+DOCKER_USER=andre487
+
+cd "$(dirname "$0")"
+
+docker build . -t "$DOCKER_USER/modsecurity:$VERSION" --build-arg version="$VERSION"
